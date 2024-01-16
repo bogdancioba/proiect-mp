@@ -419,6 +419,16 @@
               <FileType>5</FileType>
               <FilePath>.\uart.h</FilePath>
             </File>
+            <File>
+              <FileName>pit.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\pit.c</FilePath>
+            </File>
+            <File>
+              <FileName>pit.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\pit.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

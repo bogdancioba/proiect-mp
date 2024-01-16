@@ -101,7 +101,7 @@ class MainWindow(QMainWindow):
         self.initTimer()
 
     def initSerial(self):
-            self.ser = serial.Serial('COM7', 38400, timeout=1)  # Replace 'COM_PORT' with your actual port
+            self.ser = serial.Serial('COM7', 38400, timeout=0.1)  # Replace 'COM_PORT' with your actual port
             # Other serial setup code as needed
 
     def initTimer(self):
@@ -125,9 +125,9 @@ class MainWindow(QMainWindow):
                 if adcValue <= 180:
                     pen = pg.mkPen(color=(255, 0, 0))  # Red
                 elif 181 <= adcValue <= 251:
-                    pen = pg.mkPen(color=(0, 255, 0))  # Green
+                    pen = pg.mkPen(color=(255, 255, 0))  # Green
                 else:
-                    pen = pg.mkPen(color=(255, 255, 0))  # Yellow
+                    pen = pg.mkPen(color=(0, 255, 0))  # Yellow
 
                 self.data_line.setPen(pen)  # Set the color of the line
 

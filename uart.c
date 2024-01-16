@@ -15,6 +15,19 @@ uint8_t UART0_Receive(void) {
 	return UART0->D;
 }
 
+void delay_ms(uint32_t milliseconds) {
+    for(uint32_t i = 0; i < milliseconds * 1000; ++i) {
+        // This loop will need to be calibrated based on your system's clock speed
+        __NOP();  // No Operation - does nothing but consume time
+    }
+}
+
+
+// Add a function to check if data is available
+uint8_t UART0_DataAvailable(void) {
+    return (UART0->S1 & UART_S1_RDRF_MASK);
+}
+
 void UART0_Transmit_String(const char* str) {
     while (*str) {
         UART0_Transmit(*str++);

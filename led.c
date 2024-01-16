@@ -3,7 +3,7 @@
 #define GREEN_LED_PIN (4) // PORT D
 #define YELLOW_LED_PIN (8) // PORT C
 
-uint8_t state;
+
 
 int Is_LED_On(uint8_t led_pin, GPIO_Type *port) {
     // Check if the pin is set or cleared
@@ -75,7 +75,7 @@ void Test_LED(void){
 void RGBLed_Init(void){
 	
     // Activating the clock signal for the pins used in the RGB LED
-    SIM_SCGC5 |= SIM_SCGC5_PORTA_MASK | SIM_SCGC5_PORTD_MASK | SIM_SCGC5_PORTC_MASK;
+    SIM_SCGC5 |= SIM_SCGC5_PORTA_MASK | SIM_SCGC5_PORTD_MASK | SIM_SCGC5_PORTC_MASK | SIM_SCGC5_PORTB_MASK;;
     
     // --- RED LED on Port A ---
     PORTA->PCR[RED_LED_PIN] &= ~PORT_PCR_MUX_MASK;
@@ -95,3 +95,7 @@ void RGBLed_Init(void){
     GPIOC_PDDR |= (1<<YELLOW_LED_PIN);
     //GPIOC_PSOR |= (1<<YELLOW_LED_PIN);
 }
+
+
+
+

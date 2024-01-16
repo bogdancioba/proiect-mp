@@ -22,47 +22,37 @@ Dialog DLL:      TARMCM1.DLL V1.14.6.0
  
 <h2>Project:</h2>
 C:\Users\cioba\Desktop\Proiect-micro\project.uvprojx
-Project File Date:  01/08/2024
+Project File Date:  01/16/2024
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.18', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Build target 'Target 1'
-led.c(1): warning: extra tokens at end of #include directive [-Wextra-tokens]
-#include "led.h";
-                ^
-led.c(2): warning: // comments are not allowed in this language [-Wcomment]
-#define RED_LED_PIN (12) // PORT A
-                         ^
-led.c(14): warning: declaration shadows a variable in the global scope [-Wshadow]
-void Control_LEDs(uint8_t state) {
+main.c(1): warning: In file included from...
+./adc.h(9): warning: // comments are not allowed in this language [-Wcomment]
+#endif // ADC_H
+       ^
+main.c(3): warning: In file included from...
+./uart.h(9): warning: no newline at end of file [-Wnewline-eof]
+void delay_ms(uint32_t milliseconds);
+                                     ^
+main.c(4): warning: In file included from...
+./pit.h(6): warning: no newline at end of file [-Wnewline-eof]
+void PIT_IRQHandler(void);
                           ^
-led.c(6): note: previous declaration is here
-uint8_t state;
-        ^
-led.c(19): warning: mixing declarations and code is a C99 extension [-Wdeclaration-after-statement]
-                int greenStatus = 0;
-                    ^
-led.c(69): warning: variable declaration in for loop is a C99-specific feature [-Wc99-extensions]
-        for(volatile int i=0; i<1000000; i++);  // Delay
+main.c(11): warning: // comments are not allowed in this language [-Wcomment]
+    // Initialize modules
+    ^
+main.c(22): warning: mixing declarations and code is a C99 extension [-Wdeclaration-after-statement]
+    uint8_t adcValue;
             ^
-led.c(69): warning: GCC does not allow variable declarations in for loop initializers before C99 [-Wgcc-compat]
-led.c(60): warning: function 'Test_LED' could be declared with attribute 'noreturn' [-Wmissing-noreturn]
-void Test_LED(void){
-                   ^
-led.c(97): warning: no newline at end of file [-Wnewline-eof]
-}
- ^
-led.c(6): warning: no previous extern declaration for non-static variable 'state' [-Wmissing-variable-declarations]
-uint8_t state;
-        ^
-led.c(6): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-uint8_t state;
-^
-9 warnings generated.
-compiling led.c...
+main.c(61): warning: 'return' will never be executed [-Wunreachable-code-return]
+    return 0;
+           ^
+6 warnings generated.
+compiling main.c...
 linking...
-Program Size: Code=7708 RO-data=768 RW-data=0 ZI-data=352  
-".\Objects\project.axf" - 0 Error(s), 9 Warning(s).
+Program Size: Code=8524 RO-data=784 RW-data=4 ZI-data=352  
+".\Objects\project.axf" - 0 Error(s), 6 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -89,9 +79,9 @@ Package Vendor: Keil
    * Component: ARM::CMSIS:CORE:5.6.0
 
    * Component: Keil::Device:Startup:2.5.0
-      Source file:   Device/Source/ARM/startup_MKL25Z4.s
       Source file:   Device/Source/system_MKL25Z4.c
       Include file:  Device/Source/system_MKL25Z4.h
+      Source file:   Device/Source/ARM/startup_MKL25Z4.s
 Build Time Elapsed:  00:00:01
 </pre>
 </body>
